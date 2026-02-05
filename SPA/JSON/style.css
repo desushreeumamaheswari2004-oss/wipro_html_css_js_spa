@@ -1,0 +1,16 @@
+body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .slider-box {
+      width: 300px;
+      margin-top: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }

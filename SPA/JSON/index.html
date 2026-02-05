@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Picker Demo</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</head>
+
+<body>
+
+  <h3>Appointment Date Selection</h3>
+  <label>Select Date:</label><br><br>
+  <input type="text" id="datePicker" placeholder="Click to select date">
+
+  <div class="section">
+    <h3>2. Slider (Price Range)</h3>
+    <div id="priceSlider" class="slider-box"></div>
+    <p>Selected Price: ₹<span id="priceValue">500</span></p>
+  </div>
+
+  <div class="section">
+    <h3>3. Image Carousel</h3>
+    <div class="carousel">
+      <img src="istockphoto-1550071750-612x612.jpg">
+      <img src="istockphoto-814423752-612x612.jpg">
+      <img src="lavender-field-sunset-near-valensole_268835-3910.avif">
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script>
+    $(document).ready(function () {
+
+      // Date Picker
+      $("#datePicker").datepicker({
+        dateFormat: "dd-mm-yy",
+        minDate: 0,
+        changeMonth: true,
+        changeYear: true
+      });
+
+      // Slider (THIS is why it was not showing before)
+      $("#priceSlider").slider({
+        min: 0,
+        max: 1000,
+        value: 500,
+        slide: function (event, ui) {
+          $("#priceValue").text(ui.value);
+        }
+      });
+
+      // Carousel
+      $(".carousel").slick({
+        autoplay: true,
+        dots: true
+      });
+
+    });
+  </script>
+
+</body>
+</html>

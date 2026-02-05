@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--While understanding event delegation we have to understand following pointers
+    1) Event Bubbling : When an event is triggered on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. 
+    2) Event Capturing : In this phase, the event starts from the root and goes down to the target element.
+    3) Event Delegation : It is a technique involving adding a single event listener to a parent element that will fire for all descendants matching a selector, whether those descendants exist now or are added in the future.-->
+    <div id="parentDiv" style="width:300px; height:300px; background-color:lightblue; text-align:center; padding-top:130px;">
+        Parent Div
+        <div id="childDiv" style="width:150px; height:150px; background-color:lightcoral; margin: auto; padding-top:60px;">
+            Child Div
+        </div>  
+    </div>
+    <script>
+        // Adding event listener to parent div
+        document.getElementById("parentDiv").addEventListener("click", function(event) {
+            alert("Parent Div Clicked!");
+        });
+
+        // Adding event listener to child div
+        document.getElementById("childDiv").addEventListener("click", function(event) {
+            alert("Child Div Clicked!");
+            // Uncomment the next line to stop propagation and see the difference
+            // event.stopPropagation();
+        });
+    </script>
+</body>
+</html>
